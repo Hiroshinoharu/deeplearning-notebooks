@@ -10,6 +10,8 @@ Sigmoid - Neuron
 
 sigma(z) = 1/1+e^-z
 
+Cost = 1/n sum(y^i-y(hat)^i)^2
+
 Natural exponential function
 
 Artificial Neuron Function
@@ -61,4 +63,47 @@ Hidden Layers In Neural Networks
 
 - Forward Propgation
 
+--------------------------------------------------------
+
+Cost Functions
+
 mean square error
+
+Training Approach
+
+- Backward Propgation
+
+- Gradient Descent
+
+Minimizing Cost
+
+Learning Rate N (0.01, 0.001 is good to start with)
+
+Memory/Compute power would hinder training process
+
+Stochastic Gradient Descent
+
+Split data into mini batches(sub-sets)
+
+-------------------------------------------------
+
+Batching
+
+Batch size = 32 
+
+Sweet spot 
+
+If it too big decrease by ^2
+
+If each epoch takes long with batch
+
+
+-----------------------------------------------
+Back Propgation
+
+Chain rule from calculus
+
+-------------------------------------------------
+Optimizers
+
+Stochastic Gradient Descent
