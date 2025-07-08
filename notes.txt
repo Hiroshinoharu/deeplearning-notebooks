@@ -1,0 +1,5 @@
+w.x + b
+
+w = weight
+x = factor
+b = threshold
