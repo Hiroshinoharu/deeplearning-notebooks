@@ -49,3 +49,16 @@ Hidden Layers In Neural Networks
 
 - Dense layer (a.k.a. Fully-connected layer)
     Receives input from previous layer (Fully Connected)
+
+- Layer Types
+    Dense/softmax
+
+- Input Layers
+
+- Output Layers
+
+- Hidden layer
+
+- Forward Propgation
+
+mean square error
