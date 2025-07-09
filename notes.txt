@@ -191,3 +191,8 @@ Computer Vision
 Convolutional layers extract features out of each part of image
 
 Pooling layers
+
+
+--------------------------------------------------------------
+R-CNN 
+YOLO
