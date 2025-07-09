@@ -1,116 +1,180 @@
-w.x + b = z
+🧠 Artificial Neuron: Basic Concept
+A neuron in a neural network receives inputs, processes them, and outputs a signal.
 
-w = weight
-x = factor
-b = bias
+🧮 Equation:
 
-Activation: a 
+z = w * x + b
+w: weight (importance of the input)
 
-Sigmoid - Neuron
+x: input/factor
 
-sigma(z) = 1/1+e^-z
+b: bias (shifts the activation)
 
-Cost = 1/n sum(y^i-y(hat)^i)^2
+z: weighted sum (input to activation function)
 
-Natural exponential function
+🔁 Activation Functions
+These decide if a neuron should “fire” or not based on z.
 
-Artificial Neuron Function
+✅ Sigmoid:
 
-Range: (0,1)
+σ(z) = 1 / (1 + e^(-z))
+Output range: (0, 1)
 
-Tanh - Neuron
+Useful when outputs need to be probabilities
 
-Similar to Sigmoid
+Downsides: Not zero-centered, slow training (especially in deep networks)
 
-Range: (-1,1)
+✅ Tanh (Hyperbolic Tangent):
 
-Retified Linear Unit - (Relu)
+tanh(z) = (e^z - e^(-z)) / (e^z + e^(-z))
+Output range: (-1, 1)
 
-Properties of biological Neuron
+Zero-centered → faster convergence during training
 
-Relu = sigma(z) = max(0,z)
+Similar shape to sigmoid, but more efficient in practice
 
-Non-Linear Architecture
+✅ ReLU (Rectified Linear Unit):
+ReLU(z) = max(0, z)
+Output range: [0, ∞)
 
-Partial Calculus Calculation
+Fast computation, less likely to saturate
 
-Recommendations:
+Best choice for hidden layers in deep neural networks
 
-Relu - Best,  Efficient computations
+⚠️ Perceptron (Hard Threshold):
+Outputs 0 or 1 (no gradient)
 
-tanh - Good, 0 centered output (Rapid training)
+Not recommended for deep learning (cannot use backpropagation properly)
 
-Sigmoid - Acceptable (Trains less rapidly), only situations where range is (0,1)
+🧱 Neural Network Architecture
+📥 Input Layer:
+The first layer, takes raw data (e.g. pixels, numbers)
 
-Perceptron - NOT RECOMMENDED FOR DEEP LEARNING MODELS
+🔒 Hidden Layers:
+Dense/Fully Connected Layers: Each neuron is connected to every neuron in the previous and next layer.
 
+Non-linear transformations using activation functions.
 
-----------------------------------------------------------------------------------------------------
+The more layers, the "deeper" the network.
 
-Hidden Layers In Neural Networks
+📤 Output Layer:
+Produces final prediction (e.g. probability, category)
 
-- Dense layer (a.k.a. Fully-connected layer)
-    Receives input from previous layer (Fully Connected)
+🔄 Forward Propagation
+Data flows through layers
 
-- Layer Types
-    Dense/softmax
+Activations are computed layer-by-layer
 
-- Input Layers
+Final result is the prediction/output
 
-- Output Layers
+🧮 Cost/Loss Function
+Measures how wrong the prediction is.
 
-- Hidden layer
+📉 Mean Squared Error (MSE):
 
-- Forward Propgation
+Cost = (1/n) * ∑(yᵢ - ŷᵢ)²
+yᵢ: actual value
 
---------------------------------------------------------
+ŷᵢ: predicted value
 
-Cost Functions
+n: number of examples
 
-mean square error
+Used for regression tasks
 
-Training Approach
+Other common loss functions:
 
-- Backward Propgation
+Cross-Entropy (for classification)
 
-- Gradient Descent
+MAE (Mean Absolute Error)
 
-Minimizing Cost
+🔁 Training Neural Networks
+🔙 Backward Propagation:
+Uses chain rule from calculus to calculate gradients
 
-Learning Rate N (0.01, 0.001 is good to start with)
+Propagates error back from output to earlier layers
 
-Memory/Compute power would hinder training process
+⚙️ Gradient Descent:
+Adjusts weights and biases to minimize the cost/loss.
 
-Stochastic Gradient Descent
+Change = learning_rate × gradient
 
-Split data into mini batches(sub-sets)
+Learning Rate (α): How big the steps are (common values: 0.01 or 0.001)
 
--------------------------------------------------
+⚡ Stochastic Gradient Descent (SGD):
+Instead of using the full dataset at once:
 
-Batching
+Split data into mini-batches
 
-Batch size = 32 
+Train on each batch
 
-Sweet spot 
+Faster, and uses less memory
 
-If it too big decrease by ^2
+📦 Batching
+Batch Size = number of training examples used in one forward/backward pass (commonly 32)
 
-If each epoch takes long with batch
+Sweet spot: balances performance & computation
 
+If training is too slow, reduce batch size (e.g., from 64 → 32 → 16)
 
------------------------------------------------
-Back Propgation
+🚀 Optimizers
+Help improve convergence and speed of training.
 
-Chain rule from calculus
+SGD (Stochastic Gradient Descent): Simple, works well
 
--------------------------------------------------
-Optimizers
+Momentum: (Regular and Nesterov)
 
-Stochastic Gradient Descent
+    - Use a Single Learning Rate
 
--------------------------------------------------
+AdaGrad: Adapative Gradient - mimimises the need for tinkeing learning Rate
 
-Neuron Saturation deminishing
+but the matrix is bigger it divides to the point learning rate short
 
-Weight Cost:
+AdaDelta: Resolves issues with AdaGrad in same manner as moment
 
+RMSprop: Root Mean Squared Propagation
+
+Adam: Adapative Moment Estimation (Extra Moment Average)
+
+Ndam: RMSprop with Nesterov Momentum
+
+Other advanced optimizers: Adam, RMSprop, AdaGrad (better for deep networks)
+
+⚠️ Neuron Saturation
+Occurs when activation outputs are stuck (very high/low values), causing gradients to vanish → leads to slow or no learning
+
+Sigmoid and tanh are more prone to this issue
+
+ReLU reduces this problem
+
+🧠 Weight Regularization (a.k.a. Weight Cost)
+Adds a penalty to large weights to prevent overfitting.
+
+Two common types:
+
+L1 Regularization: Adds absolute values of weights
+
+L2 Regularization: Adds squared values of weights
+
+Batch Normalisation:
+
+2 learnable parameters
+
+Helps to scale weights from overfitting
+
+overfitting - Cost goes down, validation cost goes up
+
+Reducing Cost
+
+Exploding Gradient -> Inverse of Vanishing Gradient
+
+Regularization Techniques
+
+L1 Regularization: Adds absolute values of weights
+
+L2 Regularization: Adds squared values of weights
+
+Data Augmentation - Keras has a module for this
+
+Dropout:
+
+Apply to hyper parameter
