@@ -178,3 +178,16 @@ Data Augmentation - Keras has a module for this
 Dropout:
 
 Apply to hyper parameter
+
+
+--------------------------------------
+
+Convolutional Neural Network
+
+Artificial network that features Convolutional layers
+
+Computer Vision
+
+Convolutional layers extract features out of each part of image
+
+Pooling layers
