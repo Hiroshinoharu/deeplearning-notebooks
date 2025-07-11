@@ -199,3 +199,9 @@ YOLO
 
 -----------------------------------------------------------
 
+Fasion MNIST
+
+Kaggle.comm
+Figure Eight
+Luke de Olivera
+Jonkrohn.com
